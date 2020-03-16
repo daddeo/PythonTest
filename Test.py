@@ -44,6 +44,121 @@ print(10 * "Rum")  # RumRumRumRumRumRumRumRumRumRum
 print("c:\\test\\path\\")
 print(r"c:\test\path")  # cannot have trailing \, "...path\", or Python will hork
 
+#
+# See the Python online documention under 7. Input and Output for more information of formatting
+# https://docs.python.org/3/tutorial/inputoutput.html
+# sprintf style formatters:
+# https://docs.python.org/3/library/stdtypes.html#old-string-formatting
+# https://www.geeksforgeeks.org/python-output-formatting/
+
+year = 2016
+event = 'Referendum'
+print(f'Results of the {year} {event}')  # 'Results of the 2016 Referendum'
+
+yes_votes = 42_572_654
+no_votes = 43_132_495
+percentage = yes_votes / (yes_votes + no_votes)
+print('{:-9} YES votes  {:2.2%}'.format(yes_votes, percentage))  # ' 42572654 YES votes  49.67%'
+
+# convert any value to a string with the repr() or str()
+s = 'Hello, world.'
+print(str(s))  # Hello, world.
+print(repr(s))  # 'Hello, world.'
+print(str(1 / 7))  # 0.14285714285714285
+
+import math
+
+# The value of pi is approximately 3.142.
+print(f'The value of pi is approximately {math.pi:.3f}.')
+
+# : is useful for lining up columns
+# Sjoerd     ==>       4127
+# Jack       ==>       4098
+# Dcab       ==>       7678
+table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
+for name, phone in table.items():
+    print(f'{name:10} ==> {phone:10d}')
+
+# Other modifiers can be used to convert the value before it is formatted.
+# '!a' applies ascii(), '!s' applies str(), and '!r' applies repr()
+animals = 'eels'
+print(f'My hovercraft is full of {animals}.')  # My hovercraft is full of eels.
+print(f'My hovercraft is full of {animals!r}.')  # My hovercraft is full of 'eels'.
+
+print('{0} and {1}'.format('spam', 'eggs'))  # spam and eggs
+print('{1} and {0}'.format('spam', 'eggs'))  # eggs and spam
+
+# This spam is absolutely horrible.
+print('This {food} is {adjective}.'.format(food='spam', adjective='absolutely horrible'))
+
+# The story of Bill, Manfred, and Georg.
+print('The story of {0}, {1}, and {other}.'.format('Bill', 'Manfred', other='Georg'))
+
+# Jack: 4098; Sjoerd: 4127; Dcab: 8637678
+table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
+print('Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; Dcab: {0[Dcab]:d}'.format(table))
+
+# this can be done by using the ‘**’ notation
+# Jack: 4098; Sjoerd: 4127; Dcab: 8637678
+table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
+print('Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**table))
+
+# 1   1    1
+# 2   4    8
+# 3   9   27
+# 4  16   64
+# 5  25  125
+# 6  36  216
+# 7  49  343
+# 8  64  512
+# 9  81  729
+# 10 100 1000
+for x in range(1, 11):
+    print('{0:2d} {1:3d} {2:4d}'.format(x, x * x, x * x * x))
+
+x = 1
+y = 5.33
+print("X: %02d, Y: %5.2f" % (x,y)) # X: 01, Y:  5.33
+
+# print integer and float value
+# Geeks :  1, Portal :  5.33
+print("Geeks : % 2d, Portal : % 5.2f" % (1, 05.333))
+
+# print integer value
+# Total students :  240, Boys :  120
+print("Total students : % 3d, Boys : % 2d" % (240, 120))
+
+# print octal value
+# '    031'
+print("% 7.3o" % (25))
+
+# print exponential value
+# ' 3.561E+02'
+print("% 10.3E" % (356.08977))
+
+# Geeks :12, Portal :    0.55
+print("Geeks :{0:2d}, Portal :{1:8.2f}".format(12, 00.546))
+# Second argument:  11, first one:   47.42
+print("Second argument: {1:3d}, first one: {0:7.2f}".format(47.42, 11))
+# Geeks:   453,  Portal:    59.06
+print("Geeks: {a:5d},  Portal: {p:8.2f}".format(a = 453, p = 59.058))
+
+# Geeks: 4127; For: 4098; Geeks: 8637678
+# using format() in dictionary
+# {0 is for tab and then [] is the key in tab
+tab = {'geeks': 4127, 'for': 4098, 'geek': 8637678}
+print('Geeks: {0[geeks]:d}; For: {0[for]:d}; Geeks: {0[geek]:d}'.format(tab))
+
+# I love GeeksForGeeks computer Portal
+# using format() in dictionary
+data = dict(fun="GeeksForGeeks", adj="Portal")
+print("I love {fun} computer {adj}".format(**data))
+
+
+# ------------------------------------------------------------------------------------------------
+print("-----")
+# ------------------------------------------------------------------------------------------------
+
 x = 2
 print("x = {}".format(x))  # 2
 x = 2 + 3
@@ -53,6 +168,8 @@ print("x = {}".format(x))  # 10
 y = 3
 print("y = {}".format(y))  # 3
 print("x * y = {}".format(x * y))  # 30
+x, y = 7, 3
+print("x = {}, y = {}".format(x, y))
 
 name = "Jimbo"
 print(name)  # simple assignment
@@ -173,8 +290,8 @@ print(data.get(3, 'Not Found'))  # does not exist, no output
 keys = ["Apple", "Plum", "Banana", "Orange"]
 values = ["Red", "Purple", "Yellow", "Orange"]
 fruits = dict(zip(keys, values))
-print(fruits) # {'Apple': 'Red', 'Plum': 'Purple', 'Banana': 'Yellow', 'Orange': 'Orange'}
-print(fruits["Plum"]) # Purple
+print(fruits)  # {'Apple': 'Red', 'Plum': 'Purple', 'Banana': 'Yellow', 'Orange': 'Orange'}
+print(fruits["Plum"])  # Purple
 try:
     print(fruits["Blackberry"])  # Keyerror
 except KeyError as e:
@@ -182,13 +299,13 @@ except KeyError as e:
 finally:
     pass
 fruits["Blackberry"] = "Black"
-print(fruits) # {'Apple': 'Red', 'Plum': 'Purple', 'Banana': 'Yellow', 'Orange': 'Orange', 'Blackberry': 'Black'}
+print(fruits)  # {'Apple': 'Red', 'Plum': 'Purple', 'Banana': 'Yellow', 'Orange': 'Orange', 'Blackberry': 'Black'}
 print(fruits["Blackberry"])  # Black
 del fruits["Blackberry"]
 del fruits["Plum"]
-print(fruits) # {'Apple': 'Red', 'Banana': 'Yellow', 'Orange': 'Orange'}
+print(fruits)  # {'Apple': 'Red', 'Banana': 'Yellow', 'Orange': 'Orange'}
 
-languages = {'JS':'Atom', 'CS':'VS', 'Python':['PyCharm','Sublime'], 'Java':{'JSE':'Netbeans', 'J2EE':'Eclipse'}}
+languages = {'JS': 'Atom', 'CS': 'VS', 'Python': ['PyCharm', 'Sublime'], 'Java': {'JSE': 'Netbeans', 'J2EE': 'Eclipse'}}
 # {'JS': 'Atom', 'CS': 'VS', 'Python': ['PyCharm', 'Sublime'], 'Java': {'JSE': 'Netbeans', 'J2EE': 'Eclipse'}}
 print(languages)
 print(languages['JS'])  # Atom
@@ -198,13 +315,13 @@ print(languages['Java'])  # {'JSE': 'Netbeans', 'J2EE': 'Eclipse'}
 print(languages['Java']['J2EE'])  # Eclipse
 
 # type quit to exit help
-#help()
-#help('topics')
-#help('LISTS')
+# help()
+# help('topics')
+# help('LISTS')
 
 # more on variables
 number = 5
-print(id(number)) # print address of number
+print(id(number))  # print address of number
 a = 2
 b = a
 # both point to the same address 1885665216, since they both have the same value (increased memory efficiency)
@@ -233,13 +350,14 @@ k = float(a)
 # AFTER -- a = <class 'int'>,2, b = <class 'str'>,2.2, k=<class 'float'>,2.0
 print("AFTER -- a = {},{}, b = {},{}, k={},{}".format(type(a), a, type(b), b, type(k), k))
 b = float(b)
+# could also use !=, <=, >=
 isLess = k < b
 isGreater = k > b
 isEqual = k == b
 # k=2.0, b=2.2, k < b: True, k > b: False, k == b: False
 print("k={}, b={}, k < b: {}, k > b: {}, k == b: {}".format(k, b, isLess, isGreater, isEqual))
-print(int(True)) # 1
-print(int(False)) # 0
+print(int(True))  # 1
+print(int(False))  # 0
 
 # types
 list1 = [25, 12, 82]
@@ -248,21 +366,61 @@ set1 = {25, 12, 82}
 print("type(set1): {}".format(type(set1)))
 tuple1 = (25, 12, 82)
 print("type(tuple1): {}".format(type(tuple1)))
-str = 'Text'
-print("type(str): {}".format(type(str)))
+text = 'Text'
+print("type(text): {}".format(type(text)))
 range1 = range(10)
 print("type(range1): {}".format(type(range1)))
-print(range1) # range(0, 10)
-print(list(range1)) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-range1 = list(range(2,11,2))
-print(range1) # [2, 4, 6, 8, 10]
+print(range1)  # range(0, 10)
+print(list(range1))  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+range1 = list(range(2, 11, 2))
+print(range1)  # [2, 4, 6, 8, 10]
 
-dict = {'apple':'red', 'banana':'yellow', 'orange':'orange', 'blackberry':'black'}
-print(dict) # {'apple': 'red', 'banana': 'yellow', 'orange': 'orange', 'blackberry': 'black'}
-print(dict.keys()) # dict_keys(['apple', 'banana', 'orange', 'blackberry'])
-print(dict.values()) # dict_values(['red', 'yellow', 'orange', 'black'])
-print("d['banana']: {}".format(dict['banana'])) # d['banana']: yellow
-print("d.get('orange'): {}".format(dict.get('orange'))) # d.get('orange'): orange
+d = {'apple': 'red', 'banana': 'yellow', 'orange': 'orange', 'blackberry': 'black'}
+print(d)  # {'apple': 'red', 'banana': 'yellow', 'orange': 'orange', 'blackberry': 'black'}
+print(d.keys())  # dict_keys(['apple', 'banana', 'orange', 'blackberry'])
+print(d.values())  # dict_values(['red', 'yellow', 'orange', 'black'])
+print("d['banana']: {}".format(d['banana']))  # d['banana']: yellow
+print("d.get('orange'): {}".format(d.get('orange')))  # d.get('orange'): orange
 
+x = 3
+print("x = {}".format(x))  # 3
+x += 3
+print("x = {}".format(x))  # 6
+x *= 3
+print("x = {}".format(x))  # 18
+x //= 3
+print("x = {}".format(x))  # 6
+x -= 3
+print("x = {}".format(x))  # 3
 
+# swapping values
+a, b = 5, 6
+print("a,b = {},{}".format(a, b))  # 5,6
 
+temp = a
+a = b
+b = temp
+print("a,b = {},{}".format(a, b))  # 6,5
+
+a = a + b
+b = a - b
+a = a - b
+print("a,b = {},{}".format(a, b))  # 5,6
+
+# uses ROT_TWO(), swaps the 2 top-most stack elements
+a, b = b, a
+print("a,b = {},{}".format(a, b))  # 6,5
+
+# XOR bits
+a = a ^ b
+b = a ^ b
+a = a ^ b
+print("a,b = {},{}".format(a, b))  # 5,6
+
+# bitwise operators
+print(~12)
+print(12 & 13)
+print(12 | 13)
+print(12 ^ 13)
+print(20 << 2)
+print(20 >> 2)
