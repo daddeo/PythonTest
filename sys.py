@@ -2,8 +2,20 @@ import sys
 
 print("testing")
 
-print("ver: ", sys.version)
-print("exe: ", sys.executable)
+print("> platform: ", sys.platform)
+print("> OS ver  : ", sys.getwindowsversion())
+print("> version : ", sys.version)
+print("> exe     : ", sys.executable)
+print("> winver  : ", sys.winver)
+print("> path --------------------------")
+for p in sys.path:
+    print(p)
+print("> modules (built-in) ------------")
+for p in sys.builtin_module_names:
+    print(p)
+print("> modules (loaded) --------------")
+for m in sys.modules:
+    print(m)
 
 # --------------------------------------------------------------------------------------
 # useful commands
