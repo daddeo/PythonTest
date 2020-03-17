@@ -1,3 +1,4 @@
+from math import sqrt
 
 i = 1
 while i <= 5:
@@ -10,47 +11,47 @@ while i <= 5:
     print()
 
 print("-----")
-s = 'TESTING'
+s = "TESTING"
 for i in s:
     print(i)
 
 print("-----")
-for i in range(11,21,1):
+for i in range(11, 21, 1):
     print(i)
 print("-----")
-for i in range(11,21,2):
+for i in range(11, 21, 2):
     print(i)
 print("-----")
-for i in range(11,21,5):
+for i in range(11, 21, 5):
     print(i)
 print("-----")
-for i in range(10,0,-1):
-    if (i < 10):
+for i in range(10, 0, -1):
+    if i < 10:
         print(",", end="")
     print("{}".format(i), end="")
 print()
 print("-----")
-for i in range(1,20):
-    if (i % 3 != 0):
-        if (i > 1):
+for i in range(1, 20):
+    if i % 3 != 0:
+        if i > 1:
             print(",", end="")
         print("{}".format(i), end="")
 print()
 print("-----")
 # do print odd numbers
-for i in range(1,10):
+for i in range(1, 10):
     if i % 2 != 0:
         pass
     else:
-        if (i > 2):
+        if i > 2:
             print(",", end="")
         print("{}".format(i), end="")
 print()
 print("-----")
-for i in range(1,50):
+for i in range(1, 50):
     if i % 3 == 0 or i % 5 == 0:
         continue
-    if (i > 1):
+    if i > 1:
         print(",", end="")
     print("{}".format(i), end="")
 print()
@@ -70,13 +71,14 @@ for i in range(5):
     print("Hello ", i)
 
 # if you want to create a function, call it, but not implement it yet then 'pass' will be needed
-def func():
-    pass
+# def func():
+#    pass
+
 
 # if a body code has no implementation then pass will be needed
 x = 10
 if x == 10:
-    pass # condition is known to exist, but implenentation might not be defined yet
+    pass  # condition is known to exist, but implenentation might not be defined yet
 else:
     print(x)
 
@@ -88,28 +90,29 @@ else:
 for i in range(4):
     for j in range(4):
         print("# ", end="")
-    print() # needed to add the CRLF <newline>
+    print()  # needed to add the CRLF <newline>
 print("-----")
 
 # print a left facing triangle of hashes
 for i in range(4):
-    for j in range(i+1):
+    for j in range(i + 1):
         print("# ", end="")
-    print() # needed to add the CRLF <newline>
+    print()  # needed to add the CRLF <newline>
 print("-----")
 
 # print a upside down left facing triangle of hashes
 for i in range(4):
-    for j in range(4-i):
+    for j in range(4 - i):
         print("# ", end="")
-    print() # needed to add the CRLF <newline>
+    print()  # needed to add the CRLF <newline>
 print("-----")
 
 # ----------------------------------------------------------------------------------------------------
 # For Else
 #
 
-def func(numbers):
+
+def skipFive(numbers):
     for n in numbers:
         if n % 5 == 0:
             print(n)
@@ -117,35 +120,39 @@ def func(numbers):
     else:
         print("not found")
 
-numbers = [10,16,18,21,26]
-func(numbers)
-numbers = [33,16,18,21,26]
-func(numbers)
+
+numbers = [10, 16, 18, 21, 26]
+skipFive(numbers)
+numbers = [33, 16, 18, 21, 26]
+skipFive(numbers)
 print("-----")
 
 # ----------------------------------------------------------------------------------------------------
 # Finding a prime number
 #
 
+
 def isPrime(number):
-    for i in range(2,number):
+    for i in range(2, number):
         if number % i == 0:
             return "not prime"
     else:
         return "prime"
 
-print("{} is {}".format(10,isPrime(10)))
-print("{} is {}".format(31,isPrime(31)))
+
+print("{} is {}".format(10, isPrime(10)))
+print("{} is {}".format(31, isPrime(31)))
 print("-----")
 
-from math import sqrt
+
 def isPrime2(number):
-    for i in range(2,int(sqrt(number)+1)):
+    for i in range(2, int(sqrt(number) + 1)):
         if number % i == 0:
             return "not prime"
     else:
         return "prime"
 
-print("{} is {}".format(10,isPrime(10)))
-print("{} is {}".format(31,isPrime(31)))
+
+print("{} is {}".format(10, isPrime(10)))
+print("{} is {}".format(31, isPrime(31)))
 print("-----")

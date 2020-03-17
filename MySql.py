@@ -6,7 +6,9 @@
 
 import mysql.connector
 
-db = mysql.connector.connect(host="localhost", user="{username}", passwd="{password}", database="{name}")
+db = mysql.connector.connect(
+    host="localhost", user="{username}", passwd="{password}", database="{name}"
+)
 
 # show all available databases
 cursor = db.cursor()
@@ -15,9 +17,8 @@ for i in cursor:
     print(i)
 
 # instead of using cursor can just use the result
-result = cursor.fetchall() # fetch all rows
+result = cursor.fetchall()  # fetch all rows
 print(result)
 
-result = cursor.fetchone() # fetch one row
+result = cursor.fetchone()  # fetch one row
 print(result)
-

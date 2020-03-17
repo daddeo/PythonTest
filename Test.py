@@ -5,6 +5,8 @@
 This is treated as documentation and not as a multi-line comment
 """
 
+import math
+
 print("hello!")
 
 # Order of Prescendence: BODMAS rule:
@@ -31,9 +33,10 @@ print("10 % 3 = {}".format(10 % 3))  # 1
 
 # single or double quotations inside the other
 print("Jason's laptop")
-print('Jason\'s laptop')  # need to escape with '\' the middle single quote
+print("Jason's laptop")  # need to escape with '\' the middle single quote
 print(
-    "Jason's \"Lenovo\" laptop")  # need to escape the double quotes, but not the single quote since the string is surrounded by double quotes
+    'Jason\'s "Lenovo" laptop'
+)  # need to escape the double quotes, but not the single quote since the string is surrounded by double quotes
 
 print("Rum")  # Rum
 print("Rum" + "Rum")  # RumRum
@@ -52,56 +55,58 @@ print(r"c:\test\path")  # cannot have trailing \, "...path\", or Python will hor
 # https://www.geeksforgeeks.org/python-output-formatting/
 
 year = 2016
-event = 'Referendum'
-print(f'Results of the {year} {event}')  # 'Results of the 2016 Referendum'
+event = "Referendum"
+print(f"Results of the {year} {event}")  # 'Results of the 2016 Referendum'
 
 yes_votes = 42_572_654
 no_votes = 43_132_495
 percentage = yes_votes / (yes_votes + no_votes)
-print('{:-9} YES votes  {:2.2%}'.format(yes_votes, percentage))  # ' 42572654 YES votes  49.67%'
+print(
+    "{:-9} YES votes  {:2.2%}".format(yes_votes, percentage)
+)  # ' 42572654 YES votes  49.67%'
 
 # convert any value to a string with the repr() or str()
-s = 'Hello, world.'
+s = "Hello, world."
 print(str(s))  # Hello, world.
 print(repr(s))  # 'Hello, world.'
 print(str(1 / 7))  # 0.14285714285714285
 
-import math
-
 # The value of pi is approximately 3.142.
-print(f'The value of pi is approximately {math.pi:.3f}.')
+print(f"The value of pi is approximately {math.pi:.3f}.")
 
 # : is useful for lining up columns
 # Sjoerd     ==>       4127
 # Jack       ==>       4098
 # Dcab       ==>       7678
-table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
+table = {"Sjoerd": 4127, "Jack": 4098, "Dcab": 7678}
 for name, phone in table.items():
-    print(f'{name:10} ==> {phone:10d}')
+    print(f"{name:10} ==> {phone:10d}")
 
 # Other modifiers can be used to convert the value before it is formatted.
 # '!a' applies ascii(), '!s' applies str(), and '!r' applies repr()
-animals = 'eels'
-print(f'My hovercraft is full of {animals}.')  # My hovercraft is full of eels.
-print(f'My hovercraft is full of {animals!r}.')  # My hovercraft is full of 'eels'.
+animals = "eels"
+print(f"My hovercraft is full of {animals}.")  # My hovercraft is full of eels.
+print(f"My hovercraft is full of {animals!r}.")  # My hovercraft is full of 'eels'.
 
-print('{0} and {1}'.format('spam', 'eggs'))  # spam and eggs
-print('{1} and {0}'.format('spam', 'eggs'))  # eggs and spam
+print("{0} and {1}".format("spam", "eggs"))  # spam and eggs
+print("{1} and {0}".format("spam", "eggs"))  # eggs and spam
 
 # This spam is absolutely horrible.
-print('This {food} is {adjective}.'.format(food='spam', adjective='absolutely horrible'))
+print(
+    "This {food} is {adjective}.".format(food="spam", adjective="absolutely horrible")
+)
 
 # The story of Bill, Manfred, and Georg.
-print('The story of {0}, {1}, and {other}.'.format('Bill', 'Manfred', other='Georg'))
+print("The story of {0}, {1}, and {other}.".format("Bill", "Manfred", other="Georg"))
 
 # Jack: 4098; Sjoerd: 4127; Dcab: 8637678
-table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
-print('Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; Dcab: {0[Dcab]:d}'.format(table))
+table = {"Sjoerd": 4127, "Jack": 4098, "Dcab": 8637678}
+print("Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; Dcab: {0[Dcab]:d}".format(table))
 
 # this can be done by using the ‘**’ notation
 # Jack: 4098; Sjoerd: 4127; Dcab: 8637678
-table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
-print('Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**table))
+table = {"Sjoerd": 4127, "Jack": 4098, "Dcab": 8637678}
+print("Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}".format(**table))
 
 # 1   1    1
 # 2   4    8
@@ -114,11 +119,11 @@ print('Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**table))
 # 9  81  729
 # 10 100 1000
 for x in range(1, 11):
-    print('{0:2d} {1:3d} {2:4d}'.format(x, x * x, x * x * x))
+    print("{0:2d} {1:3d} {2:4d}".format(x, x * x, x * x * x))
 
 x = 1
 y = 5.33
-print("X: %02d, Y: %5.2f" % (x,y)) # X: 01, Y:  5.33
+print("X: %02d, Y: %5.2f" % (x, y))  # X: 01, Y:  5.33
 
 # print integer and float value
 # Geeks :  1, Portal :  5.33
@@ -141,13 +146,13 @@ print("Geeks :{0:2d}, Portal :{1:8.2f}".format(12, 00.546))
 # Second argument:  11, first one:   47.42
 print("Second argument: {1:3d}, first one: {0:7.2f}".format(47.42, 11))
 # Geeks:   453,  Portal:    59.06
-print("Geeks: {a:5d},  Portal: {p:8.2f}".format(a = 453, p = 59.058))
+print("Geeks: {a:5d},  Portal: {p:8.2f}".format(a=453, p=59.058))
 
 # Geeks: 4127; For: 4098; Geeks: 8637678
 # using format() in dictionary
 # {0 is for tab and then [] is the key in tab
-tab = {'geeks': 4127, 'for': 4098, 'geek': 8637678}
-print('Geeks: {0[geeks]:d}; For: {0[for]:d}; Geeks: {0[geek]:d}'.format(tab))
+tab = {"geeks": 4127, "for": 4098, "geek": 8637678}
+print("Geeks: {0[geeks]:d}; For: {0[for]:d}; Geeks: {0[geek]:d}".format(tab))
 
 # I love GeeksForGeeks computer Portal
 # using format() in dictionary
@@ -207,7 +212,7 @@ print(numbers[4])  # 14
 print(numbers[-1])  # 14
 print(numbers[2:])  # [36,95,14]
 
-values = ['Text', 10, 25.5]  # string, integer, float
+values = ["Text", 10, 25.5]  # string, integer, float
 print(values)
 # can combine lists
 multiList = [numbers, values]
@@ -273,46 +278,55 @@ print(set1)  # {98, 75, 12, 25, 63}
 # set1[0]
 
 # Dictionary, aka map
-data = {1: 'One', 2: 'Two', 4: 'Four'}
+data = {1: "One", 2: "Two", 4: "Four"}
 print(data)  # {1: 'One', 2: 'Two', 4: 'Four'}
 print(data[4])  # Four
 print(data[1])  # One
 try:
     print(data[3])  # does not exist, KeyError
 except KeyError as e:
-    print('Not Found')
+    print("Not Found")
 finally:
     pass
 print(data.get(1))  # One
-print(data.get(3, 'Not Found'))  # does not exist, no output
+print(data.get(3, "Not Found"))  # does not exist, no output
 
 # construct a dictionary from two lists
 keys = ["Apple", "Plum", "Banana", "Orange"]
 values = ["Red", "Purple", "Yellow", "Orange"]
 fruits = dict(zip(keys, values))
-print(fruits)  # {'Apple': 'Red', 'Plum': 'Purple', 'Banana': 'Yellow', 'Orange': 'Orange'}
+print(
+    fruits
+)  # {'Apple': 'Red', 'Plum': 'Purple', 'Banana': 'Yellow', 'Orange': 'Orange'}
 print(fruits["Plum"])  # Purple
 try:
     print(fruits["Blackberry"])  # Keyerror
 except KeyError as e:
-    print('Not Found')
+    print("Not Found")
 finally:
     pass
 fruits["Blackberry"] = "Black"
-print(fruits)  # {'Apple': 'Red', 'Plum': 'Purple', 'Banana': 'Yellow', 'Orange': 'Orange', 'Blackberry': 'Black'}
+print(
+    fruits
+)  # {'Apple': 'Red', 'Plum': 'Purple', 'Banana': 'Yellow', 'Orange': 'Orange', 'Blackberry': 'Black'}
 print(fruits["Blackberry"])  # Black
 del fruits["Blackberry"]
 del fruits["Plum"]
 print(fruits)  # {'Apple': 'Red', 'Banana': 'Yellow', 'Orange': 'Orange'}
 
-languages = {'JS': 'Atom', 'CS': 'VS', 'Python': ['PyCharm', 'Sublime'], 'Java': {'JSE': 'Netbeans', 'J2EE': 'Eclipse'}}
+languages = {
+    "JS": "Atom",
+    "CS": "VS",
+    "Python": ["PyCharm", "Sublime"],
+    "Java": {"JSE": "Netbeans", "J2EE": "Eclipse"},
+}
 # {'JS': 'Atom', 'CS': 'VS', 'Python': ['PyCharm', 'Sublime'], 'Java': {'JSE': 'Netbeans', 'J2EE': 'Eclipse'}}
 print(languages)
-print(languages['JS'])  # Atom
-print(languages['Python'])  # ['PyCharm', 'Sublime']
-print(languages['Python'][1])  # Sublime
-print(languages['Java'])  # {'JSE': 'Netbeans', 'J2EE': 'Eclipse'}
-print(languages['Java']['J2EE'])  # Eclipse
+print(languages["JS"])  # Atom
+print(languages["Python"])  # ['PyCharm', 'Sublime']
+print(languages["Python"][1])  # Sublime
+print(languages["Java"])  # {'JSE': 'Netbeans', 'J2EE': 'Eclipse'}
+print(languages["Java"]["J2EE"])  # Eclipse
 
 # type quit to exit help
 # help()
@@ -343,19 +357,27 @@ type(b)
 print("a = {}, b = {}".format(type(a), type(b)))
 
 # BEFORE -- a = <class 'int'>,9, b = <class 'float'>,2.2, k=<class 'int'>,9
-print("BEFORE -- a = {},{}, b = {},{}, k={},{}".format(type(a), a, type(b), b, type(k), k))
+print(
+    "BEFORE -- a = {},{}, b = {},{}, k={},{}".format(type(a), a, type(b), b, type(k), k)
+)
 a = int(b)
 b = str(b)
 k = float(a)
 # AFTER -- a = <class 'int'>,2, b = <class 'str'>,2.2, k=<class 'float'>,2.0
-print("AFTER -- a = {},{}, b = {},{}, k={},{}".format(type(a), a, type(b), b, type(k), k))
+print(
+    "AFTER -- a = {},{}, b = {},{}, k={},{}".format(type(a), a, type(b), b, type(k), k)
+)
 b = float(b)
 # could also use !=, <=, >=
 isLess = k < b
 isGreater = k > b
 isEqual = k == b
 # k=2.0, b=2.2, k < b: True, k > b: False, k == b: False
-print("k={}, b={}, k < b: {}, k > b: {}, k == b: {}".format(k, b, isLess, isGreater, isEqual))
+print(
+    "k={}, b={}, k < b: {}, k > b: {}, k == b: {}".format(
+        k, b, isLess, isGreater, isEqual
+    )
+)
 print(int(True))  # 1
 print(int(False))  # 0
 
@@ -366,7 +388,7 @@ set1 = {25, 12, 82}
 print("type(set1): {}".format(type(set1)))
 tuple1 = (25, 12, 82)
 print("type(tuple1): {}".format(type(tuple1)))
-text = 'Text'
+text = "Text"
 print("type(text): {}".format(type(text)))
 range1 = range(10)
 print("type(range1): {}".format(type(range1)))
@@ -375,12 +397,14 @@ print(list(range1))  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 range1 = list(range(2, 11, 2))
 print(range1)  # [2, 4, 6, 8, 10]
 
-d = {'apple': 'red', 'banana': 'yellow', 'orange': 'orange', 'blackberry': 'black'}
-print(d)  # {'apple': 'red', 'banana': 'yellow', 'orange': 'orange', 'blackberry': 'black'}
+d = {"apple": "red", "banana": "yellow", "orange": "orange", "blackberry": "black"}
+print(
+    d
+)  # {'apple': 'red', 'banana': 'yellow', 'orange': 'orange', 'blackberry': 'black'}
 print(d.keys())  # dict_keys(['apple', 'banana', 'orange', 'blackberry'])
 print(d.values())  # dict_values(['red', 'yellow', 'orange', 'black'])
-print("d['banana']: {}".format(d['banana']))  # d['banana']: yellow
-print("d.get('orange'): {}".format(d.get('orange')))  # d.get('orange'): orange
+print("d['banana']: {}".format(d["banana"]))  # d['banana']: yellow
+print("d.get('orange'): {}".format(d.get("orange")))  # d.get('orange'): orange
 
 x = 3
 print("x = {}".format(x))  # 3
