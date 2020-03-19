@@ -2,7 +2,7 @@
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     "git.autorefresh": false,
-    "python.pythonPath": "C:\\_dev\\tools\\python382-64\\python.exe",
+    "python.pythonPath": "venv\\Scripts\\python.exe",
     "python.formatting.provider": "black",
     "python.linting.pycodestyleEnabled": false
 }
