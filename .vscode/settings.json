@@ -12,5 +12,6 @@
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.pycodestyleEnabled": false,
-    "git.autorefresh": false
+    "git.autorefresh": false,
+    "code-runner.defaultLanguage": "python"
 }
