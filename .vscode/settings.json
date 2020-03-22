@@ -1,8 +1,16 @@
 {
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "git.autorefresh": false,
     "python.pythonPath": "venv\\Scripts\\python.exe",
+    "window.zoomLevel": 0,
+    "editor.fontSize": 16,
+    "editor.fontWeight": "500",
+    //"editor.fontFamily": "Source Code Pro",
+    //"debug.console.fontFamily": "Source Code Pro",
+    "debug.console.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontWeight": "600",
     "python.formatting.provider": "black",
-    "python.linting.pycodestyleEnabled": false
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pycodestyleEnabled": false,
+    "git.autorefresh": false
 }

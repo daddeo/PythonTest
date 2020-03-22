@@ -4,6 +4,9 @@ import sys
 print("argc: {}".format(len(sys.argv)))
 print("argv: {}".format(sys.argv))
 
-x = int(sys.argv[1])
-y = int(sys.argv[2])
-print("x + y: {}".format(x + y))
+if len(sys.argv) < 2:
+    print("please try again and enter two numbers to add together.")
+else:
+    x = int(sys.argv[1])
+    y = int(sys.argv[2])
+    print("x + y: {}".format(x + y))

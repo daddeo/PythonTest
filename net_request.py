@@ -7,3 +7,10 @@
 
 import requests
 
+r = requests.get("http://www.google.com")
+print(r.elapsed)
+print(r.encoding)
+print(r.headers)
+print(r.raw)
+print(r.status_code)
+print(r.url)

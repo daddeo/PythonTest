@@ -9,11 +9,12 @@ try:
     print(a / b)
     k = int(input("Enter a number: "))
     print(k)
+    print(a / k)
 except ZeroDivisionError as e:
-    print("Divide by Zero", e)
+    print("exception", e)
 except ValueError as e:
     print("Invalid input")
 except Exception as e:  # catch all exception handler
-    print("Something went wrong...")
+    print("Something went wrong... ", e)
 finally:
     print("resource closed")
