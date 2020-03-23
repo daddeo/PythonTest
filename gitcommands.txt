@@ -26,5 +26,5 @@ git rm -r --cached myFolder
 ---------------------
 
 git config --list
-git config --global user.email "jason.wallenfang@gmail.com"
-git config --global user.name "Jason Wallenfang"
+git config --global user.email "{email}"
+git config --global user.name "{name}"
