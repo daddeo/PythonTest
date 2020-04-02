@@ -3,6 +3,8 @@ import sys
 import logging
 import time
 
+# https://docs.python.org/3/howto/logging.html
+# https://docs.python.org/3/library/logging.html#logging.basicConfig
 # log to stderr, exceptions are logged as multiple lines
 # logging.basicConfig(level=os.environ.get("LOGLEVEL", "DEBUG"))
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
