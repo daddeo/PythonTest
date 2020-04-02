@@ -6,9 +6,10 @@ import logging.config
 import os
 import yaml
 
+log_file_path = os.path.join(os.getcwd(), "Output", "testfile4.log")
 
 try:
-    os.remove("output/testfile3.log")
+    os.remove("output/testfile4.log")
 except FileNotFoundError:
     pass
 

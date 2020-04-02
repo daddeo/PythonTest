@@ -8,13 +8,14 @@
 # Successfully installed python-json-logger-0.1.11
 # Successfully installed structlog-20.1.0
 
+# import datetime
+import logging
+
+# import logging.config
 import os
 import sys
-import datetime
 
-import logging.config
 from pythonjsonlogger import jsonlogger
-
 import structlog
 
 from log_entry_processor import LogEntryProcessor

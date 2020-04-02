@@ -9,12 +9,13 @@ logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 # ---------------------------------------------------------------
 
+log_file_path = os.path.join(os.getcwd(), "Output", "logfile.log")
 
-def cleanup():
-    os.remove("logfile.log")
-
-
-cleanup()
+try:
+    os.remove(log_file_path)
+    # os.remove("output/logfile.log")
+except FileNotFoundError:
+    pass
 
 # ---------------------------------------------------------------
 
@@ -32,11 +33,16 @@ def tester_filter():
 
     kwargs = {"a": 3, "b": 4, "c": hypotenuse(3, 4)}
 
-    logger.debug("a = {a}, b = {b}".format(**kwargs))
-    logger.info("Hypotenuse of {a}, {b} is {c}".format(**kwargs))
-    logger.warning("a={a} and b={b} are equal".format(**kwargs))
-    logger.error("a={a} and b={b} cannot be negative".format(**kwargs))
-    logger.critical("Hypotenuse of {a}, {b} is {c}".format(**kwargs))
+    if logger.isEnabledFor(logging.DEBUG):
+        logger.debug("a = {a}, b = {b}".format(**kwargs))
+    if logger.isEnabledFor(logging.INFO):
+        logger.info("Hypotenuse of {a}, {b} is {c}".format(**kwargs))
+    if logger.isEnabledFor(logging.WARNING):
+        logger.warning("a={a} and b={b} are equal".format(**kwargs))
+    if logger.isEnabledFor(logging.ERROR):
+        logger.error("a={a} and b={b} cannot be negative".format(**kwargs))
+    if logger.isEnabledFor(logging.CRITICAL):
+        logger.critical("Hypotenuse of {a}, {b} is {c}".format(**kwargs))
 
     time.sleep(0.1)
 
@@ -71,14 +77,16 @@ print()
 def dump_log():
     print()
     print("--------------- logfile.log")
-    file = open("output/logfile.log", "r")
+    # file = open("output/logfile.log", "r")
+    file = open(log_file_path, "r")
     print(file.read())  # show entire contents of txt file
     print("---------------")
     print()
 
 
 # define file handler and set formatter
-file_handler = logging.FileHandler("output/logfile.log")
+# file_handler = logging.FileHandler("output/logfile.log")
+file_handler = logging.FileHandler(log_file_path)
 formatter = logging.Formatter("%(asctime)s : %(levelname)s : %(name)s : %(message)s")
 file_handler.setFormatter(formatter)
 
@@ -203,5 +211,24 @@ main_logger.setLevel(5)
 
 dev_logger = logging.getLogger("main.dev")
 
-print(main_logger.getEffectiveLevel())
-print(dev_logger.getEffectiveLevel())
+print("main effective level: ", main_logger.getEffectiveLevel())
+print("dev effective level: ", dev_logger.getEffectiveLevel())
+print("\n-----\n")
+
+# ---------------------------------------------------------------
+
+main_test_logger = logging.getLogger("main.test")
+main_test_logger.setLevel(logging.WARNING)
+
+try:
+    main_test_logger.debug("debug test")
+    main_test_logger.info("info test")
+    main_test_logger.warning("warning test")
+    main_test_logger.error("error test")
+    open("/path/to/does/not/exist", "rb")
+except (SystemExit, KeyboardInterrupt):
+    raise
+except FileNotFoundError as fnfe:
+    main_test_logger.error("Failed to open file", exc_info=True)
+except Exception as ex:
+    main_test_logger.error("Unhandled error", exc_info=True)
