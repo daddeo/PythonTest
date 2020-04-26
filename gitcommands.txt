@@ -28,3 +28,19 @@ git rm -r --cached myFolder
 git config --list
 git config --global user.email "{email}"
 git config --global user.name "{name}"
+
+---------------------
+
+initializes a new empty Git repository in the current directory, do this from new project folder root
+> git init
+
+add all folder contents to newly initialized Git repository
+> git add .
+
+commit to repository
+> git commit -m "First commit"
+
+go to GitHub and create new repository (matching the current project that was added locally)
+using the origin provided by GitHub when the repository was created to do 
+> git remote add origin git@github.com:{username}/{repository name}.git
+> git push -u origin master
