@@ -1,6 +1,7 @@
 # Lambda Functions
 # A lambda is an anonymous function and an anonymous function is a function that is defined without a name.
 # https://www.programiz.com/python-programming/anonymous-function
+# https://www.w3schools.com/python/python_lambda.asp
 
 
 import datetime

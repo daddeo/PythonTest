@@ -448,3 +448,33 @@ print(12 | 13)
 print(12 ^ 13)
 print(20 << 2)
 print(20 >> 2)
+
+# some string functions
+sentence = "My dog is named Fluffy"
+print(sentence.upper())
+print(sentence.lower())
+print(sentence.count("f"))
+print(sentence.count("is"))
+print(sentence.capitalize())
+
+first_name = "John"
+last_name = "Doe"
+print("Hello, " + first_name + " " + last_name)
+print("Hello, {} {}".format(first_name, last_name))
+print("Hello, {0} {1}".format(first_name, last_name))
+print("Hello, {1} {0}".format(first_name, last_name))
+# f being for format
+print(f"Hello, {first_name} {last_name}")
+
+
+def test_num(num):
+    if num in (1, 2, 8, 9):
+        print("special number")
+    else:
+        print("not special number")
+
+
+test_num(5)
+test_num(1)
+test_num(7)
+test_num(8)

@@ -44,3 +44,39 @@ go to GitHub and create new repository (matching the current project that was ad
 using the origin provided by GitHub when the repository was created to do 
 > git remote add origin git@github.com:{username}/{repository name}.git
 > git push -u origin master
+
+
+
+>>> GitHub's create a new repository on the command line
+
+echo "# deleteme" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/daddeo/deleteme.git
+git push -u origin master
+
+>>> GitHub's push an existing repository from the command line
+
+git remote add origin https://github.com/daddeo/deleteme.git
+git push -u origin master
+
+
+>>> Reassociate a repository to a different remote
+> How can I change the origin remote in VSCode?
+
+1. Go to the root of the directory.
+2. List your existing remotes in order to get the name of the remote you want to change.
+
+$ git remote -v
+origin  git@github.com:USERNAME/REPOSITORY.git (fetch)
+origin  git@github.com:USERNAME/REPOSITORY.git (push)
+
+3. Change your remote's URL from SSH to HTTPS with the git remote set-url command.
+
+$ git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+
+4. Verify that the remote URL has changed.
+
+$ git remote -v
+

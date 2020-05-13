@@ -1,0 +1,1 @@
+DON'T forget to add .env to .gitignore file!!!

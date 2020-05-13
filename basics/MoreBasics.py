@@ -16,6 +16,10 @@ for i in s:
     print(i)
 
 print("-----")
+for i in ["John", "Jane"]:
+    print(i)
+
+print("-----")
 for i in range(11, 21, 1):
     print(i)
 print("-----")
